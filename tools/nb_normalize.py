@@ -39,8 +39,16 @@ def normalize_output(output):
 
 def normalize(nb):
     meta = nb.get("metadata", {})
-    # Churns purely from which machine/tool last opened the notebook.
+    # All of this churns purely from which machine/tool last opened the notebook:
+    # VS Code writes ".venv (3.12.3)", Colab writes "Python 3". Both tools ignore
+    # the stored value and use whichever kernel the user actually selected.
     meta.get("language_info", {}).pop("version", None)
+    if "kernelspec" in meta:
+        meta["kernelspec"] = {
+            "display_name": "Python 3",
+            "language": meta["kernelspec"].get("language", "python"),
+            "name": "python3",
+        }
 
     for cell in nb.get("cells", []):
         cell["source"] = as_lines(cell.get("source", ""))
