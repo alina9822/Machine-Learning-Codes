@@ -17,7 +17,7 @@ The codebase is organized by topic and each folder contains one or more notebook
 
 ## Top-Level Files
 
-- [1905099_ML_blog.md](1905099_ML_blog.md): A write-up related to a machine learning paper as part of the tasks of the machine learning lab.
+- [1905099_Literature_review_blog.md](1905099_ML_blog.md): A write-up related to a machine learning paper as part of the tasks of the machine learning lab.
 - [README.md](README.md): Repository overview and usage notes.
 
 ## Project Structure
